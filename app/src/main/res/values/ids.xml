@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="team_home" type="id" />
+    <item name="team_away" type="id" />
+    <item name="date_event" type="id" />
+    <item name="list_team" type="id" />
+    <item name="list_favorite" type="id" />
+    <item name="list_favorite_team" type="id" />
+    <item name="spinnerNext" type="id" />
+</resources>

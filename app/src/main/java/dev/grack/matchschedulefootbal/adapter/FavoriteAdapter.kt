@@ -1,7 +1,7 @@
 package dev.grack.matchschedulefootbal.adapter
 
 import android.annotation.SuppressLint
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ import dev.grack.matchschedulefootbal.db.Favorite
 import org.jetbrains.anko.find
 
 class FavoriteAdapter(private val favorite: MutableList<Favorite>,
-                      private val listener: (Favorite) -> Unit) : RecyclerView.Adapter<FavoriteViewHolder>() {
+                      private val listener: (Favorite) -> Unit) : androidx.recyclerview.widget.RecyclerView.Adapter<FavoriteViewHolder>() {
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
 
         holder.bindItem(favorite[position], listener)
@@ -24,7 +24,7 @@ class FavoriteAdapter(private val favorite: MutableList<Favorite>,
     override fun getItemCount() = favorite.size
 }
 
-class FavoriteViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class FavoriteViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
     private val teamHome: TextView = view.find(R.id.team_home)
     private val teamAway: TextView = view.find(R.id.team_away)
     private val date: TextView = view.find(R.id.date_event)

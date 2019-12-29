@@ -1,6 +1,6 @@
 package dev.grack.matchschedulefootbal.adapter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +13,7 @@ import org.jetbrains.anko.find
 
 class SearchViewTeamAdapter(private var nextmatchs: MutableList<TeamSearch>,
                             private var listener: (TeamSearch) -> Unit) :
-        RecyclerView.Adapter<SearchViewTeamHolder>() {
+        androidx.recyclerview.widget.RecyclerView.Adapter<SearchViewTeamHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewTeamHolder {
         return SearchViewTeamHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_search_team, parent, false))
     }
@@ -25,7 +25,7 @@ class SearchViewTeamAdapter(private var nextmatchs: MutableList<TeamSearch>,
     }
 }
 
-class SearchViewTeamHolder(view: View) : RecyclerView.ViewHolder(view) {
+class SearchViewTeamHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
     private val teamHome: TextView = view.find(R.id.text_team)
     private val imageTeam: ImageView = view.find(R.id.image_team)
 

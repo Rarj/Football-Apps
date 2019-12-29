@@ -3,8 +3,8 @@ package dev.grack.matchschedulefootbal.activity.detail
 import android.annotation.SuppressLint
 import android.database.sqlite.SQLiteConstraintException
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.rw.loadingdialog.LoadingView

@@ -2,9 +2,9 @@ package dev.grack.matchschedulefootbal.activity.searchactivity
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import com.miguelcatalan.materialsearchview.MaterialSearchView
@@ -23,7 +23,7 @@ class SearchActivity : AppCompatActivity(), SearchView {
     private lateinit var presenter: SearchPresenter
     private lateinit var mAdapter: SearchViewAdapter
     private val events: MutableList<EventSearch> = mutableListOf()
-    private lateinit var recy: RecyclerView
+    private lateinit var recy: androidx.recyclerview.widget.RecyclerView
     private lateinit var loadingView: LoadingView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +48,7 @@ class SearchActivity : AppCompatActivity(), SearchView {
         }
 
         recy.adapter = mAdapter
-        recy.layoutManager = LinearLayoutManager(this)
+        recy.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
 
         presenter = SearchPresenter(this)
 

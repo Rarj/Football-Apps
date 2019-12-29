@@ -1,29 +1,34 @@
-//noinspection GradleDependency
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "dev.grack.matchschedulefootbal"
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        buildConfigField "String", "BASE_URL", "\"https://www.thesportsdb.com/\""
-        buildConfigField "String", "TSDB_API_KEY", "\"1\""
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField('String', 'BASE_URL', BASE_URL)
+        buildConfigField('String', 'API_KEY', API_KEY)
+        multiDexEnabled true
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 kotlin {
@@ -39,40 +44,63 @@ androidExtensions {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    //noinspection GradleCompatible
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:design:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.android.support:support-v4:28.0.0'
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.mockito:mockito-core:2.22.0'
-    testImplementation 'org.mockito:mockito-inline:2.22.0'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test:rules:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.github.GrenderG:Toasty:1.2.8'
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    implementation "androidx.cardview:cardview:$cardViewVersion"
+
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$converterGsonVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$adapterRxJavaVersion"
+
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
+
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
+    implementation "com.jakewharton.rxbinding3:rxbinding:$rxBindingVersion"
+
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifeCycleExtensionsVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelKtxVersion"
+
+    implementation "com.orhanobut:logger:$loggerVersion"
+
+    // FIXME : REMOVE THIS LIBRARY WHEN REFACTORE DONE
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$junitExtVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoCoreVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoCoreVersion"
+    androidTestImplementation "androidx.test:rules:$testRulesVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.github.GrenderG:Toasty:1.3.0'
     implementation "org.jetbrains.anko:anko:$anko_version"
     implementation "org.jetbrains.anko:anko-design:$anko_version"
     implementation "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
     implementation "org.jetbrains.anko:anko-recyclerview-v7-coroutines:$anko_version"
     implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
-    implementation 'com.android.support:cardview-v7:28.0.0'
     implementation "org.jetbrains.anko:anko-cardview-v7:$anko_version"
     implementation "org.jetbrains.anko:anko-constraint-layout:$anko_version"
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation "org.jetbrains.anko:anko-sqlite:$anko_version"
-    androidTestImplementation('com.android.support.test.espresso:espresso-contrib:2.2.2') {
+    androidTestImplementation('androidx.test.espresso:espresso-contrib:3.1.0') {
         exclude group: 'com.android.support', module: 'appcompat-v7'
         exclude group: 'com.android.support', module: 'support-v4'
         exclude group: 'com.android.support', module: 'design'
         exclude group: 'com.android.support', module: 'recyclerview-v7'
     }
     implementation 'com.miguelcatalan:materialsearchview:1.4.0'
-    implementation 'com.android.support:design:28.0.0'
     implementation 'am.gaut.android.toolbarbutton:toolbarbutton:0.1.0'
     implementation 'com.uncopt:android.justified:1.0'
     implementation 'com.jaredrummler:material-spinner:1.2.5'

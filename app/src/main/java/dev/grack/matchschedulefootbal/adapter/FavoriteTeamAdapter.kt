@@ -1,6 +1,6 @@
 package dev.grack.matchschedulefootbal.adapter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +12,7 @@ import dev.grack.matchschedulefootbal.db.FavoriteTeam
 import org.jetbrains.anko.find
 
 class FavoriteTeamAdapter(private val favorite: MutableList<FavoriteTeam>,
-                          private val listener: (FavoriteTeam) -> Unit) : RecyclerView.Adapter<FavoriteTeamViewHolder>() {
+                          private val listener: (FavoriteTeam) -> Unit) : androidx.recyclerview.widget.RecyclerView.Adapter<FavoriteTeamViewHolder>() {
 
     override fun onBindViewHolder(holder: FavoriteTeamViewHolder, position: Int) {
         holder.bindItem(favorite[position], listener)
@@ -25,7 +25,7 @@ class FavoriteTeamAdapter(private val favorite: MutableList<FavoriteTeam>,
     override fun getItemCount() = favorite.size
 }
 
-class FavoriteTeamViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class FavoriteTeamViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
     private val imageTeam: ImageView = view.find(R.id.image_team)
     private val textTeam: TextView = view.find(R.id.text_team)
 

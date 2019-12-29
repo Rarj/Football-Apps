@@ -1,7 +1,7 @@
 package dev.grack.matchschedulefootbal.adapter
 
 import android.annotation.SuppressLint
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +14,7 @@ import java.util.*
 
 class SearchViewAdapter(private var nextmatchs: MutableList<EventSearch>,
                         private var listener: (EventSearch) -> Unit) :
-        RecyclerView.Adapter<SearchViewHolder>() {
+        androidx.recyclerview.widget.RecyclerView.Adapter<SearchViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
         return SearchViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_search, parent, false))
     }
@@ -26,7 +26,7 @@ class SearchViewAdapter(private var nextmatchs: MutableList<EventSearch>,
     }
 }
 
-class SearchViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class SearchViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
     private val teamHome: TextView = view.find(R.id.team_home)
     private val teamAway: TextView = view.find(R.id.team_away)
     private val date: TextView = view.find(R.id.date_event)

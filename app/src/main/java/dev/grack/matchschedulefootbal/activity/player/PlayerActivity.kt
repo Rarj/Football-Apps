@@ -2,9 +2,9 @@ package dev.grack.matchschedulefootbal.activity.player
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.rw.loadingdialog.LoadingView
 import dev.grack.matchschedulefootbal.R
 import dev.grack.matchschedulefootbal.activity.playerdetail.PlayerDetailActivity
@@ -19,7 +19,7 @@ class PlayerActivity : AppCompatActivity(), PlayerView {
     private lateinit var presenter: PlayerPresenter
     private lateinit var mAdapter: PlayerAdapter
     private val events: MutableList<Player> = mutableListOf()
-    private lateinit var recy: RecyclerView
+    private lateinit var recy: androidx.recyclerview.widget.RecyclerView
     private lateinit var loadingView: LoadingView
     private lateinit var idTeam: String
     private lateinit var teamName: String
@@ -45,7 +45,7 @@ class PlayerActivity : AppCompatActivity(), PlayerView {
         }
 
         recy.adapter = mAdapter
-        recy.layoutManager = GridLayoutManager(ctx, 2)
+        recy.layoutManager = androidx.recyclerview.widget.GridLayoutManager(ctx, 2)
 
         presenter = PlayerPresenter(this)
         presenter.getPlayer(idTeam)

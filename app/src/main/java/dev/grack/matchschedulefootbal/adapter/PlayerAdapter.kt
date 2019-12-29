@@ -1,6 +1,6 @@
 package dev.grack.matchschedulefootbal.adapter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +13,7 @@ import org.jetbrains.anko.find
 
 class PlayerAdapter(private var nextmatchs: MutableList<Player>,
                     private var listener: (Player) -> Unit) :
-        RecyclerView.Adapter<PlayerViewHolder>() {
+        androidx.recyclerview.widget.RecyclerView.Adapter<PlayerViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayerViewHolder {
         return PlayerViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_player, parent, false))
     }
@@ -25,7 +25,7 @@ class PlayerAdapter(private var nextmatchs: MutableList<Player>,
     }
 }
 
-class PlayerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class PlayerViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
     private val teamHome: TextView = view.find(R.id.player_name)
     private val imageTeam: ImageView = view.find(R.id.player_image)
     private val position: TextView = view.find(R.id.position)

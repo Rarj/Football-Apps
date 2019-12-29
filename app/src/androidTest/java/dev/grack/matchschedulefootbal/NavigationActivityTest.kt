@@ -1,16 +1,16 @@
 package dev.grack.matchschedulefootbal
 
-import android.support.design.widget.TabLayout
-import android.support.test.espresso.Espresso
-import android.support.test.espresso.PerformException
-import android.support.test.espresso.UiController
-import android.support.test.espresso.ViewAction
-import android.support.test.espresso.action.ViewActions
-import android.support.test.espresso.assertion.ViewAssertions
-import android.support.test.espresso.contrib.RecyclerViewActions
-import android.support.test.espresso.matcher.ViewMatchers
-import android.support.test.rule.ActivityTestRule
-import android.support.v7.widget.RecyclerView
+import com.google.android.material.tabs.TabLayout
+import androidx.test.espresso.Espresso
+import androidx.test.espresso.PerformException
+import androidx.test.espresso.UiController
+import androidx.test.espresso.ViewAction
+import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.rule.ActivityTestRule
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import org.hamcrest.Matchers
 import org.junit.Assert.*
@@ -49,8 +49,8 @@ class NavigationActivityTest {
         Espresso.onView(ViewMatchers.withId(R.id.recycler_past)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 
         Thread.sleep(2000)
-        Espresso.onView(ViewMatchers.withId(R.id.recycler_past)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(10))
-        Espresso.onView(ViewMatchers.withId(R.id.recycler_past)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(10, ViewActions.click()))
+        Espresso.onView(ViewMatchers.withId(R.id.recycler_past)).perform(RecyclerViewActions.scrollToPosition<androidx.recyclerview.widget.RecyclerView.ViewHolder>(10))
+        Espresso.onView(ViewMatchers.withId(R.id.recycler_past)).perform(RecyclerViewActions.actionOnItemAtPosition<androidx.recyclerview.widget.RecyclerView.ViewHolder>(10, ViewActions.click()))
 
         Thread.sleep(2000)
         Espresso.onView(ViewMatchers.withId(R.id.add_to_favorite)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
@@ -63,7 +63,7 @@ class NavigationActivityTest {
         Espresso.onView(ViewMatchers.withId(R.id.tabs_draw)).perform(selectTabAtPosition(2))
 
         Thread.sleep(2000)
-        Espresso.onView(ViewMatchers.withId(R.id.list_favorite)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, ViewActions.click()))
+        Espresso.onView(ViewMatchers.withId(R.id.list_favorite)).perform(RecyclerViewActions.actionOnItemAtPosition<androidx.recyclerview.widget.RecyclerView.ViewHolder>(0, ViewActions.click()))
         Thread.sleep(2000)
         Espresso.onView(ViewMatchers.withId(R.id.add_to_favorite)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         Espresso.onView(ViewMatchers.withId(R.id.add_to_favorite)).perform(ViewActions.click())

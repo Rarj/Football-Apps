@@ -4,9 +4,9 @@ package dev.grack.matchschedulefootbal.activity.nextmatch
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +24,7 @@ import org.jetbrains.anko.support.v4.find
 import java.util.*
 
 
-class NextMatchFragment : Fragment(), AnkoLogger, NextMatchView {
+class NextMatchFragment : androidx.fragment.app.Fragment(), AnkoLogger, NextMatchView {
 
     private lateinit var dataLeague: ArrayList<String>
     private lateinit var idLiga: ArrayList<String>
@@ -34,7 +34,7 @@ class NextMatchFragment : Fragment(), AnkoLogger, NextMatchView {
     private lateinit var spinner: MaterialSpinner
     private lateinit var loadingView: LoadingView
 
-    private lateinit var a: RecyclerView
+    private lateinit var a: androidx.recyclerview.widget.RecyclerView
     private var idStart: String = "4328"
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -57,7 +57,7 @@ class NextMatchFragment : Fragment(), AnkoLogger, NextMatchView {
             startActivity(intent)
         }
 
-        a.layoutManager = LinearLayoutManager(ctx)
+        a.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(ctx)
         a.adapter = mAdapter
 
         preseneter.getTeamList(idStart)

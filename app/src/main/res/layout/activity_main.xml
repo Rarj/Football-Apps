@@ -35,7 +35,7 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorTab"
+            android:background="@color/sandy_brown_f08a5d"
             android:elevation="0dp"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:tabIndicatorColor="#0a6366"

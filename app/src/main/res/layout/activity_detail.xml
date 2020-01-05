@@ -152,7 +152,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/_0"
-                android:textColor="@color/colorTab"
+                android:textColor="@color/sandy_brown_f08a5d"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/textView6"
@@ -167,7 +167,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/_0"
-                android:textColor="@color/colorTab"
+                android:textColor="@color/sandy_brown_f08a5d"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/textView6"
@@ -194,7 +194,7 @@
                 android:layout_height="1dp"
                 android:layout_margin="5dp"
                 android:layout_marginTop="16dp"
-                android:background="@color/colorTab"
+                android:background="@color/sandy_brown_f08a5d"
                 app:layout_constraintTop_toBottomOf="@+id/teamHome"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="0dp" />
@@ -219,7 +219,7 @@
                 android:layout_height="1dp"
                 android:layout_margin="5dp"
                 android:layout_marginTop="16dp"
-                android:background="@color/colorTab"
+                android:background="@color/sandy_brown_f08a5d"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="0dp" />
@@ -248,7 +248,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/goal_keeper"
-                android:textColor="@color/colorTab"
+                android:textColor="@color/sandy_brown_f08a5d"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -263,7 +263,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/defense"
-                android:textColor="@color/colorTab"
+                android:textColor="@color/sandy_brown_f08a5d"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/goal_keeper_home" />
@@ -278,7 +278,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/midfield"
-                android:textColor="@color/colorTab"
+                android:textColor="@color/sandy_brown_f08a5d"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/defend_home" />
@@ -293,7 +293,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/forward"
-                android:textColor="@color/colorTab"
+                android:textColor="@color/sandy_brown_f08a5d"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/midfield_home" />
@@ -308,7 +308,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/substitutes"
-                android:textColor="@color/colorTab"
+                android:textColor="@color/sandy_brown_f08a5d"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/forward_home" />

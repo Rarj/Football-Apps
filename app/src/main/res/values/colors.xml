@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="colorTab">#11adb3</color>
+  <color name="eminence_6a2c70">#6a2c70</color>
+  <color name="night_shadz_b83b5e">#b83b5e</color>
+  <color name="sandy_brown_f08a5d">#f08a5d</color>
+  <color name="portica_f9ed69">#f9ed69</color>
+
+  <color name="white_ffffff">#ffffff</color>
+  <color name="silver_chalice_aaaaaa">#aaaaaa</color>
+  <color name="shadow_64C6C6C6">#64C6C6C6</color>
 </resources>

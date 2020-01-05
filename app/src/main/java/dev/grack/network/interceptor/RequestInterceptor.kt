@@ -1,6 +1,6 @@
 package dev.grack.network.interceptor
 
-import dev.grack.matchschedulefootbal.BuildConfig.API_KEY
+import dev.grack.zmatchschedulefootbal.BuildConfig.API_KEY
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException

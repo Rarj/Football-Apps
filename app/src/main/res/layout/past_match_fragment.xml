@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+  <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/white_ffffff"
+    tools:context="dev.grack.features.pastmatch.PastMatchFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/text_league"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:drawableEnd="@drawable/ic_filter"
+      android:elevation="4dp"
+      android:gravity="center_vertical"
+      android:padding="16dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="English Premier League" />
+
+    <ProgressBar
+      android:id="@+id/progress_circular"
+      style="@style/Widget.AppCompat.ProgressBar"
+      android:layout_width="20dp"
+      android:layout_height="20dp"
+      android:layout_margin="16dp"
+      android:elevation="4dp"
+      app:layout_constraintBottom_toBottomOf="@id/text_league"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+      android:id="@+id/divider1"
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:background="@color/shadow_64C6C6C6"
+      android:elevation="2dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/text_league" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recycler_past_match"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:overScrollMode="never"
+      android:padding="16dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/divider1"
+      tools:listitem="@layout/item_past_match" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

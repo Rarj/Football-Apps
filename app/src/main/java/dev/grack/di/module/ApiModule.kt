@@ -5,8 +5,9 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
-import dev.grack.matchschedulefootbal.BuildConfig.BASE_URL
-import dev.grack.matchschedulefootbal.network.ApiInterface
+import dev.grack.network.ApiConfiguration
+import dev.grack.zmatchschedulefootbal.BuildConfig.BASE_URL
+import dev.grack.zmatchschedulefootbal.network.ApiInterface
 import dev.grack.network.interceptor.NetworkInterceptor
 import dev.grack.network.interceptor.RequestInterceptor
 import okhttp3.Cache
@@ -32,7 +33,7 @@ class ApiModule {
   @Provides
   @Singleton
   internal fun provideCache(application: Application): Cache {
-    val cacheSize = (10 * 1024 * 1024).toLong() // 10 MB
+    val cacheSize = (10 * 1024 * 1024).toLong()
     val httpCacheDirectory = File(application.cacheDir, "http-cache")
     return Cache(httpCacheDirectory, cacheSize)
   }
@@ -76,8 +77,8 @@ class ApiModule {
 
   @Provides
   @Singleton
-  internal fun provideMovieService(retrofit: Retrofit): ApiInterface {
-    return retrofit.create(ApiInterface::class.java)
+  internal fun provideMovieService(retrofit: Retrofit): ApiConfiguration {
+    return retrofit.create(ApiConfiguration::class.java)
   }
 
 }

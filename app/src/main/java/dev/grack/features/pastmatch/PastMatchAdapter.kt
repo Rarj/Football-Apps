@@ -27,8 +27,8 @@ class PastMatchAdapter(private val listLeague: List<League>) : RecyclerView.Adap
   class ViewHolder(private val viewDataBinding: ViewDataBinding) : RecyclerView.ViewHolder(viewDataBinding.root) {
 
     fun bind(itemLeague: League) {
-      viewDataBinding.setVariable(BR.modelLeagues, itemLeague)
-      viewDataBinding.executePendingBindings()
+//      viewDataBinding.setVariable(BR.modelLeagues, itemLeague)
+//      viewDataBinding.executePendingBindings()
     }
 
   }

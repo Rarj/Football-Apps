@@ -1,5 +1,6 @@
 package dev.grack.features.pastmatch
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,14 +13,21 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.jakewharton.rxbinding3.view.clicks
 import dagger.android.support.AndroidSupportInjection
+import dev.grack.Constant.DURATION
+import dev.grack.features.listleague.ListLeagueFragment
 import dev.grack.zmatchschedulefootbal.R
 import dev.grack.zmatchschedulefootbal.databinding.PastMatchFragmentBinding
+import io.reactivex.disposables.CompositeDisposable
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class PastMatchFragment : Fragment() {
+
+  lateinit var compositeDisposable: CompositeDisposable
 
   @Inject
   lateinit var viewModeFactory: ViewModelProvider.Factory
@@ -41,6 +49,8 @@ class PastMatchFragment : Fragment() {
           container,
           false)
 
+    compositeDisposable = CompositeDisposable()
+
     showOrHideFilter(null)
 
     return binding.root
@@ -57,6 +67,13 @@ class PastMatchFragment : Fragment() {
       binding.textLeague.text = listLeagues[0].strLeague
     })
 
+    compositeDisposable.add(
+          binding.textLeague.clicks()
+                .throttleFirst(DURATION, TimeUnit.MILLISECONDS)
+                .subscribe {
+                  val listLeague = ListLeagueFragment(viewModel.listLeagues.value)
+                  listLeague.show(activity?.supportFragmentManager!!, "list_league")
+                })
   }
 
   private fun showOrHideFilter(drawable: Drawable?) {

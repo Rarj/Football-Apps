@@ -10,6 +10,7 @@ import javax.inject.Inject
 class PastMatchViewModel @Inject constructor(private val service: ApiConfiguration) : BaseViewModel() {
 
   var listLeagues = MutableLiveData<List<League>>()
+  var selectedLeague = MutableLiveData<String>()
 
   fun loadSoccerLeague() {
     val repository = LeagueRepository(service)

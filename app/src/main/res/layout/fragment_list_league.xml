@@ -1,0 +1,57 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:behavior_hideable="true"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    tools:context="dev.grack.features.listleague.ListLeagueFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/button_close"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="16dp"
+      android:src="@drawable/ic_cancel"
+      app:layout_constraintEnd_toStartOf="@id/text_header_caption"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/text_header_caption"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="Filter League"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="@id/button_close"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/button_close"
+      app:layout_constraintTop_toTopOf="@id/button_close" />
+
+    <View
+      android:id="@+id/divider1"
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:background="@color/shadow_64C6C6C6"
+      android:elevation="2dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/button_close" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recycler_league"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:overScrollMode="never"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/divider1"
+      app:layout_constraintVertical_bias="0"
+      tools:listitem="@layout/item_past_match" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

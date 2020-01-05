@@ -5,7 +5,7 @@
 
   <data>
     <variable
-      name="modelLeagues"
+      name="modelLeague"
       type="dev.grack.repository.leaguelist.model.League" />
   </data>
 
@@ -17,12 +17,13 @@
       android:id="@+id/text_team"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:text="@{modelLeagues.strLeague}"
+      android:padding="16dp"
+      android:text="@{modelLeague.strLeague}"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      tools:text="Manchester VS Chelsea" />
+      tools:text="English Premier League" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -2,28 +2,151 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools">
-
   <data>
     <variable
-      name="modelLeague"
-      type="dev.grack.repository.leaguelist.model.League" />
+      name="modelPastMatch"
+      type="dev.grack.repository.pastmatch.model.Event" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="8dp">
 
-    <androidx.appcompat.widget.AppCompatTextView
-      android:id="@+id/text_team"
+    <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:padding="16dp"
-      android:text="@{modelLeague.strLeague}"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/image_home"
+      android:layout_width="0dp"
+      android:layout_height="200dp"
+      android:adjustViewBounds="true"
+      android:background="#C9000000"
+      android:scaleType="fitXY"
+      android:tint="#C9000000"
+      app:imageUrl="@{modelPastMatch.strThumb}"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/text_team_home"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_margin="8dp"
+      android:ellipsize="end"
+      android:maxLines="2"
+      android:text="@{modelPastMatch.strHomeTeam}"
+      android:textAlignment="center"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/black_000000"
+      android:textStyle="bold"
       app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/guideline"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/image_home"
+      tools:text="Manchester United" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/text_score_home"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@{modelPastMatch.intHomeScore}"
+      android:textAlignment="textEnd"
+      android:textColor="@color/white_ffffff"
+      android:textSize="48sp"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="@id/image_home"
+      app:layout_constraintEnd_toStartOf="@id/guideline"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/text_time_event"
+      app:layout_constraintVertical_bias="1"
+      tools:text="2" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/text_score_away"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@{modelPastMatch.intAwayScore}"
+      android:textAlignment="textEnd"
+      android:textColor="@color/white_ffffff"
+      android:textSize="48sp"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="@id/image_home"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/guideline"
+      app:layout_constraintTop_toBottomOf="@id/text_time_event"
+      app:layout_constraintVertical_bias="1"
+      tools:text="0" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/text_team_away"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_margin="8dp"
+      android:ellipsize="end"
+      android:maxLines="2"
+      android:text="@{modelPastMatch.strAwayTeam}"
+      android:textAlignment="center"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/black_000000"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/guideline"
+      app:layout_constraintTop_toBottomOf="@id/image_home"
+      tools:text="Manchester City" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/text_separator_score"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text=":"
+      android:textAlignment="textEnd"
+      android:textColor="@color/white_ffffff"
+      android:textSize="56sp"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="@id/image_home"
+      app:layout_constraintEnd_toEndOf="@id/guideline"
+      app:layout_constraintStart_toStartOf="@id/guideline"
+      app:layout_constraintTop_toBottomOf="@id/text_time_event"
+      app:layout_constraintVertical_bias="1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/text_date_event"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:paddingStart="16sp"
+      android:paddingEnd="16sp"
+      android:text="@{modelPastMatch.convertDate()}"
+      android:textAlignment="center"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      android:textColor="@color/white_ffffff"
+      android:textStyle="bold"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      tools:text="English Premier League" />
+      tools:text="Sunday, 01 January 2020" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/text_time_event"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:drawableStart="@drawable/ic_time"
+      android:drawablePadding="8dp"
+      android:text="@{modelPastMatch.convertTime()}"
+      android:textAlignment="center"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/white_ffffff"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/text_date_event"
+      tools:text="20:20" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 

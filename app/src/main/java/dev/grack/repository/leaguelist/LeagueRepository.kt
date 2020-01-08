@@ -8,7 +8,7 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Singleton
 
 @Singleton
-class LeagueRepository(val service: ApiConfiguration) {
+class LeagueRepository(private val service: ApiConfiguration) {
 
   fun loadLeagueList(): Observable<List<League>> {
     return service.getLeagueList()

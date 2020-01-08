@@ -8,11 +8,15 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import dev.grack.listener.ListenerBottomSheetDialog
 import dev.grack.repository.leaguelist.model.League
 import dev.grack.zmatchschedulefootbal.R
 import dev.grack.zmatchschedulefootbal.databinding.FragmentListLeagueBinding
 
-class ListLeagueFragment(private var listLeague: List<League>?) : BottomSheetDialogFragment() {
+class ListLeagueFragment(
+      private var listLeague: List<League>?,
+      private var listenerBottomSheetDialog: ListenerBottomSheetDialog<League>?)
+  : BottomSheetDialogFragment() {
 
   lateinit var binding: FragmentListLeagueBinding
   lateinit var adapterListLeague: ListLeagueAdapter
@@ -30,7 +34,12 @@ class ListLeagueFragment(private var listLeague: List<League>?) : BottomSheetDia
     super.onViewCreated(view, savedInstanceState)
 
     if (!listLeague.isNullOrEmpty()) {
-      adapterListLeague = ListLeagueAdapter(listLeague)
+      adapterListLeague = ListLeagueAdapter(listLeague, object : ListenerBottomSheetDialog<League> {
+        override fun onItemClickListener(item: League?) {
+          listenerBottomSheetDialog?.onItemClickListener(item)
+          dismiss()
+        }
+      })
       binding.recyclerLeague.apply {
         layoutManager = LinearLayoutManager(view.context)
         adapter = adapterListLeague

@@ -127,16 +127,25 @@ data class Event(
 ) {
 
   fun convertDate(): String? {
-    val pattern = SimpleDateFormat("yyyy-mm-dd", Locale.UK)
-    val convertedDate = pattern.parse(dateEventLocal.toString())
+    return if (dateEvent.toString().isNotBlank() && dateEvent.toString() != "null") {
+      val pattern = SimpleDateFormat("yyyy-mm-dd", Locale.UK)
+      val convertedDate = pattern.parse(dateEvent.toString())
 
-    return SimpleDateFormat("E, D MMMM YYYY", Locale.UK).format(convertedDate!!)
+      SimpleDateFormat("E, D MMMM YYYY", Locale.UK).format(convertedDate!!)
+    } else {
+      ""
+    }
   }
 
   fun convertTime(): String? {
-    val pattern = SimpleDateFormat("HH:mm", Locale.UK)
-    val formatter = SimpleDateFormat("HH:mm", Locale.UK)
-    return formatter.format(pattern.parse(strTimeLocal.toString())!!)
+    return if (strTime.toString().isNotBlank() && strTime.toString() != "null") {
+      val pattern = SimpleDateFormat("HH:mm", Locale.UK)
+      val formatter = SimpleDateFormat("HH:mm", Locale.UK)
+      formatter.format(pattern.parse(strTime.toString())!!)
+
+    } else {
+      ""
+    }
   }
 
 }

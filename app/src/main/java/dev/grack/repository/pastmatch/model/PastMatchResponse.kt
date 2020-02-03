@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class PastMatchResponse(
       @SerializedName("events")
-      var events: List<Event>
+      var events: List<Event>?
 )

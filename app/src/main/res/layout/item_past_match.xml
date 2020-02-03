@@ -5,7 +5,7 @@
   <data>
     <variable
       name="modelPastMatch"
-      type="dev.grack.repository.pastmatch.model.Event" />
+      type="dev.grack.repository.pastmatch.MatchModel" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,6 +21,31 @@
       app:layout_constraintGuide_percent="0.5" />
 
     <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/teamA"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:adjustViewBounds="true"
+      android:padding="32dp"
+      app:imageUrl="@{modelPastMatch.logoTeamHome}"
+      app:layout_constraintBottom_toBottomOf="@id/image_home"
+      app:layout_constraintEnd_toStartOf="@id/guideline"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:src="@drawable/ic_trophy" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/teamB"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:padding="32dp"
+      app:imageUrl="@{modelPastMatch.logoTeamAway}"
+      app:layout_constraintBottom_toBottomOf="@id/image_home"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/guideline"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:src="@drawable/ic_trophy" />
+
+    <androidx.appcompat.widget.AppCompatImageView
       android:id="@+id/image_home"
       android:layout_width="0dp"
       android:layout_height="200dp"
@@ -28,7 +53,6 @@
       android:background="#C9000000"
       android:scaleType="fitXY"
       android:tint="#C9000000"
-      app:imageUrl="@{modelPastMatch.strThumb}"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +64,7 @@
       android:layout_margin="8dp"
       android:ellipsize="end"
       android:maxLines="2"
-      android:text="@{modelPastMatch.strHomeTeam}"
+      android:text="@{modelPastMatch.nameTeamHome}"
       android:textAlignment="center"
       android:textAppearance="@style/TextAppearance.AppCompat.Medium"
       android:textColor="@color/black_000000"
@@ -55,7 +79,7 @@
       android:id="@+id/text_score_home"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@{modelPastMatch.intHomeScore}"
+      android:text="@{modelPastMatch.scoreHome}"
       android:textAlignment="textEnd"
       android:textColor="@color/white_ffffff"
       android:textSize="48sp"
@@ -71,7 +95,7 @@
       android:id="@+id/text_score_away"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@{modelPastMatch.intAwayScore}"
+      android:text="@{modelPastMatch.scoreAway}"
       android:textAlignment="textEnd"
       android:textColor="@color/white_ffffff"
       android:textSize="48sp"
@@ -90,7 +114,7 @@
       android:layout_margin="8dp"
       android:ellipsize="end"
       android:maxLines="2"
-      android:text="@{modelPastMatch.strAwayTeam}"
+      android:text="@{modelPastMatch.nameTeamAway}"
       android:textAlignment="center"
       android:textAppearance="@style/TextAppearance.AppCompat.Medium"
       android:textColor="@color/black_000000"
@@ -122,7 +146,7 @@
       android:layout_height="wrap_content"
       android:paddingStart="16sp"
       android:paddingEnd="16sp"
-      android:text="@{modelPastMatch.convertDate()}"
+      android:text="@{modelPastMatch.dateEvent}"
       android:textAlignment="center"
       android:textAppearance="@style/TextAppearance.AppCompat.Large"
       android:textColor="@color/white_ffffff"
@@ -139,7 +163,7 @@
       android:layout_marginTop="8dp"
       android:drawableStart="@drawable/ic_time"
       android:drawablePadding="8dp"
-      android:text="@{modelPastMatch.convertTime()}"
+      android:text="@{modelPastMatch.timeEvent}"
       android:textAlignment="center"
       android:textAppearance="@style/TextAppearance.AppCompat.Medium"
       android:textColor="@color/white_ffffff"

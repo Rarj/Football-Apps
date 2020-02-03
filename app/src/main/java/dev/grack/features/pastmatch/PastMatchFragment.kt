@@ -1,5 +1,6 @@
 package dev.grack.features.pastmatch
 
+import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,13 +22,10 @@ import dev.grack.listener.ListenerBottomSheetDialog
 import dev.grack.repository.leaguelist.model.League
 import dev.grack.zmatchschedulefootbal.R
 import dev.grack.zmatchschedulefootbal.databinding.PastMatchFragmentBinding
-import io.reactivex.disposables.CompositeDisposable
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class PastMatchFragment : Fragment() {
-
-  private lateinit var compositeDisposable: CompositeDisposable
 
   @Inject
   lateinit var viewModeFactory: ViewModelProvider.Factory
@@ -60,44 +58,50 @@ class PastMatchFragment : Fragment() {
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    compositeDisposable = CompositeDisposable()
 
     viewModel.loadSoccerLeague()
     viewModel.loadPastMatch()
 
+    observer()
+    listener()
+  }
+
+  private fun observer() {
     viewModel.selectedIdLeague.observe(this, Observer { id ->
       viewModel.loadPastMatch(id)
     })
 
     viewModel.listLeagues.observe(this, Observer { listLeagues ->
       binding.progressCircular.visibility = GONE
-      showOrHideFilter(ContextCompat.getDrawable(view.context, R.drawable.ic_filter))
+      showOrHideFilter(ContextCompat.getDrawable(activity?.applicationContext!!, R.drawable.ic_filter))
       binding.textLeague.text = listLeagues[0].strLeague
     })
 
-    viewModel.listPastMatch.observe(this, Observer { pastMatchResponse ->
-      adapterPastMatch = PastMatchAdapter(pastMatchResponse)
+    viewModel.listPastMatch.observe(this, Observer {
+      adapterPastMatch = PastMatchAdapter(viewModel.matchModel)
       binding.recyclerPastMatch.apply {
-        layoutManager = LinearLayoutManager(view.context)
+        layoutManager = LinearLayoutManager(activity?.applicationContext)
         adapter = adapterPastMatch
         adapterPastMatch.notifyDataSetChanged()
       }
     })
+  }
 
-    compositeDisposable.add(
-          binding.textLeague.clicks()
-                .throttleFirst(DURATION, TimeUnit.MILLISECONDS)
-                .subscribe {
-                  val listLeague = ListLeagueFragment(
-                        viewModel.listLeagues.value,
-                        object : ListenerBottomSheetDialog<League> {
-                          override fun onItemClickListener(item: League?) {
-                            viewModel.selectedLeague.value = item?.strLeague.toString()
-                            viewModel.selectedIdLeague.value = item?.idLeague.toString()
-                          }
-                        })
-                  listLeague.show(activity?.supportFragmentManager!!, "list_league")
-                })
+  @SuppressLint("CheckResult")
+  private fun listener() {
+    binding.textLeague.clicks()
+          .throttleFirst(DURATION, TimeUnit.MILLISECONDS)
+          .subscribe {
+            val listLeague = ListLeagueFragment(
+                  viewModel.listLeagues.value,
+                  object : ListenerBottomSheetDialog<League> {
+                    override fun onItemClickListener(item: League?) {
+                      viewModel.selectedLeague.value = item?.strLeague.toString()
+                      viewModel.selectedIdLeague.value = item?.idLeague.toString()
+                    }
+                  })
+            listLeague.show(activity?.supportFragmentManager!!, "list_league")
+          }
   }
 
   private fun showOrHideFilter(drawable: Drawable?) {

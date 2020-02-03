@@ -8,7 +8,7 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Singleton
 
 @Singleton
-class TeamRepository(val apiConfiguration: ApiConfiguration) {
+class TeamRepository(private val apiConfiguration: ApiConfiguration) {
 
   fun loadTeamDetail(id: String): Observable<TeamResponse> {
     return apiConfiguration.getTeamDetail(id)

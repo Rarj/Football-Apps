@@ -34,6 +34,8 @@ class PastMatchViewModel @Inject constructor(service: ApiConfiguration) : BaseVi
 
   var matchModel = mutableListOf<MatchModel>()
 
+  var isLoading = MutableLiveData<Boolean>(true)
+
   fun loadSoccerLeague() {
     addToDisposable(leagueRepository.loadLeagueList()
           .subscribe({ leagueResponse ->

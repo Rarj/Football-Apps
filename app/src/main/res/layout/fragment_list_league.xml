@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     app:behavior_hideable="true"
     app:layout_behavior="@string/bottom_sheet_behavior"
-    tools:context="dev.grack.features.listleague.ListLeagueFragment">
+    tools:context="dev.grack.features.listleague.ListLeagueBottomSheet">
 
     <androidx.appcompat.widget.AppCompatImageView
       android:id="@+id/button_close"

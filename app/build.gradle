@@ -43,6 +43,7 @@ android {
         experimental = true
     }
 
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'res/assets'] } }
 }
 
 dependencies {
@@ -77,6 +78,8 @@ dependencies {
 
     implementation "androidx.lifecycle:lifecycle-extensions:$lifeCycleExtensionsVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelKtxVersion"
+
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
     implementation "com.orhanobut:logger:$loggerVersion"
 

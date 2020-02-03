@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import dagger.android.AndroidInjection
 import dev.grack.features.nextmatch.NextMatchFragment
 import dev.grack.features.pastmatch.PastMatchFragment
@@ -33,7 +32,7 @@ class ParentActivity : AppCompatActivity() {
 
     AndroidInjection.inject(this)
 
-    viewModel = ViewModelProviders.of(this, viewModelFactory).get(ParentViewModel::class.java)
+    viewModel = ViewModelProvider(this, viewModelFactory).get(ParentViewModel::class.java)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_parent)
     binding.viewModel = viewModel
     binding.lifecycleOwner = this

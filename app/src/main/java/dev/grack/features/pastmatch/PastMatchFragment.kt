@@ -12,12 +12,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jakewharton.rxbinding3.view.clicks
 import dagger.android.support.AndroidSupportInjection
 import dev.grack.Constant.DURATION
-import dev.grack.features.listleague.ListLeagueFragment
+import dev.grack.features.listleague.ListLeagueBottomSheet
 import dev.grack.listener.ListenerBottomSheetDialog
 import dev.grack.repository.leaguelist.model.League
 import dev.grack.zmatchschedulefootbal.R
@@ -42,7 +41,7 @@ class PastMatchFragment : Fragment() {
 
     AndroidSupportInjection.inject(this)
 
-    viewModel = ViewModelProviders.of(this, viewModeFactory).get(PastMatchViewModel::class.java)
+    viewModel = ViewModelProvider(this, viewModeFactory).get(PastMatchViewModel::class.java)
     binding = DataBindingUtil.inflate(
           inflater,
           R.layout.past_match_fragment,
@@ -67,22 +66,23 @@ class PastMatchFragment : Fragment() {
   }
 
   private fun observer() {
-    viewModel.selectedIdLeague.observe(this, Observer { id ->
+    viewModel.selectedIdLeague.observe(viewLifecycleOwner, Observer { id ->
       viewModel.loadPastMatch(id)
     })
 
-    viewModel.listLeagues.observe(this, Observer { listLeagues ->
+    viewModel.listLeagues.observe(viewLifecycleOwner, Observer { listLeagues ->
       binding.progressCircular.visibility = GONE
       showOrHideFilter(ContextCompat.getDrawable(activity?.applicationContext!!, R.drawable.ic_filter))
       binding.textLeague.text = listLeagues[0].strLeague
     })
 
-    viewModel.listPastMatch.observe(this, Observer {
+    viewModel.listPastMatch.observe(viewLifecycleOwner, Observer {
       adapterPastMatch = PastMatchAdapter(viewModel.matchModel)
       binding.recyclerPastMatch.apply {
         layoutManager = LinearLayoutManager(activity?.applicationContext)
         adapter = adapterPastMatch
         adapterPastMatch.notifyDataSetChanged()
+        viewModel.isLoading.value = false
       }
     })
   }
@@ -92,10 +92,11 @@ class PastMatchFragment : Fragment() {
     binding.textLeague.clicks()
           .throttleFirst(DURATION, TimeUnit.MILLISECONDS)
           .subscribe {
-            val listLeague = ListLeagueFragment(
+            val listLeague = ListLeagueBottomSheet(
                   viewModel.listLeagues.value,
                   object : ListenerBottomSheetDialog<League> {
                     override fun onItemClickListener(item: League?) {
+                      viewModel.isLoading.value = true
                       viewModel.selectedLeague.value = item?.strLeague.toString()
                       viewModel.selectedIdLeague.value = item?.idLeague.toString()
                     }

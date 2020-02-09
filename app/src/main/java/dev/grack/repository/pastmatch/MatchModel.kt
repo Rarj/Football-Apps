@@ -11,4 +11,23 @@ data class MatchModel(
       val scoreAway: String?,
       val dateEvent: String?,
       val timeEvent: String?
-)
+) {
+  fun scoreHome(): String {
+    var score = "0"
+    if (scoreHome != "null") {
+      score = scoreHome.toString()
+    }
+
+    return score
+  }
+
+  fun scoreAway(): String {
+    var score = "0"
+    if (scoreAway != "null") {
+      score = scoreAway.toString()
+    }
+
+    return score
+  }
+
+}

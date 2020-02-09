@@ -1,6 +1,7 @@
 package dev.grack.network
 
 import dev.grack.repository.leaguelist.model.LeagueResponse
+import dev.grack.repository.nextmatch.model.NextMatchResponse
 import dev.grack.repository.pastmatch.model.PastMatchResponse
 import dev.grack.repository.team.model.TeamResponse
 import io.reactivex.Observable
@@ -14,6 +15,9 @@ interface ApiConfiguration {
 
   @GET("eventspastleague.php")
   fun getPastEvent(@Query("id") id: String): Observable<PastMatchResponse>
+
+  @GET("eventsnextleague.php")
+  fun getNextEvent(@Query("id") id: String): Observable<NextMatchResponse>
 
   @GET("lookupteam.php")
   fun getTeamDetail(@Query("id") id: String): Observable<TeamResponse>

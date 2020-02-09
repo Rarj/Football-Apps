@@ -6,13 +6,13 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import dev.grack.repository.pastmatch.MatchModel
 import dev.grack.zmatchschedulefootbal.BR
-import dev.grack.zmatchschedulefootbal.databinding.ItemPastMatchBinding
+import dev.grack.zmatchschedulefootbal.databinding.ItemEventMatchBinding
 
 class PastMatchAdapter(private val listLeague: MutableList<MatchModel>) : RecyclerView.Adapter<PastMatchAdapter.ViewHolder>() {
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
     val inflater = LayoutInflater.from(parent.context)
-    val viewDataBinding = ItemPastMatchBinding.inflate(inflater, parent, false)
+    val viewDataBinding = ItemEventMatchBinding.inflate(inflater, parent, false)
     return ViewHolder(viewDataBinding)
   }
 
@@ -27,7 +27,7 @@ class PastMatchAdapter(private val listLeague: MutableList<MatchModel>) : Recycl
   class ViewHolder(private val viewDataBinding: ViewDataBinding) : RecyclerView.ViewHolder(viewDataBinding.root) {
 
     fun bind(itemLeague: MatchModel?) {
-      viewDataBinding.setVariable(BR.modelPastMatch, itemLeague)
+      viewDataBinding.setVariable(BR.eventMatch, itemLeague)
       viewDataBinding.executePendingBindings()
     }
 

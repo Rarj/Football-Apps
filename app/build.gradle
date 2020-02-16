@@ -81,6 +81,9 @@ dependencies {
 
     implementation "com.orhanobut:logger:$loggerVersion"
 
+    androidTestImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
+    testImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
+
     // FIXME : REMOVE THIS LIBRARY WHEN REFACTOR DONE
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$junitExtVersion"

@@ -2,10 +2,10 @@ package dev.grack.zmatchschedulefootbal.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import dev.grack.zmatchschedulefootbal.activity.favorite.FavoriteFragment
-import dev.grack.zmatchschedulefootbal.activity.favoriteteam.FavoriteTeamFragment
-import dev.grack.zmatchschedulefootbal.activity.nextmatch.NextMatchFragment
-import dev.grack.zmatchschedulefootbal.activity.pastmatch.PastMatchFragment
+import dev.grack.zmatchschedulefootbal.old.activity.favorite.FavoriteFragment
+import dev.grack.zmatchschedulefootbal.old.activity.favoriteteam.FavoriteTeamFragment
+import dev.grack.zmatchschedulefootbal.old.activity.nextmatch.NextMatchFragment
+import dev.grack.zmatchschedulefootbal.old.activity.pastmatch.PastMatchFragment
 
 class TabPageAdapter(fm: FragmentManager) : androidx.fragment.app.FragmentPagerAdapter(fm) {
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.league.LeagueActivity">
+    tools:context="dev.grack.zmatchschedulefootbal.old.activity.league.LeagueActivity">
 
     <com.jaredrummler.materialspinner.MaterialSpinner
         android:id="@+id/spinner"

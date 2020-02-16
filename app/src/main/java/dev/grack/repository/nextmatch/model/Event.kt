@@ -1,8 +1,7 @@
 package dev.grack.repository.nextmatch.model
 
 import com.google.gson.annotations.SerializedName
-import java.text.SimpleDateFormat
-import java.util.*
+import dev.grack.Utils
 
 class Event(
       @SerializedName("dateEvent")
@@ -126,25 +125,11 @@ class Event(
 ) {
 
   fun convertDate(): String? {
-    return if (dateEvent.toString().isNotBlank() && dateEvent.toString() != "null") {
-      val pattern = SimpleDateFormat("yyyy-mm-dd", Locale.UK)
-      val convertedDate = pattern.parse(dateEvent.toString())
-
-      SimpleDateFormat("E, D MMMM YYYY", Locale.UK).format(convertedDate!!)
-    } else {
-      ""
-    }
+    return Utils.formatDate(dateEvent.toString())
   }
 
   fun convertTime(): String? {
-    return if (strTime.toString().isNotBlank() && strTime.toString() != "null") {
-      val pattern = SimpleDateFormat("HH:mm", Locale.UK)
-      val formatter = SimpleDateFormat("HH:mm", Locale.UK)
-      formatter.format(pattern.parse(strTime.toString())!!)
-
-    } else {
-      ""
-    }
+    return Utils.formatTime(strTime.toString())
   }
 
 }

@@ -26,38 +26,38 @@
       </intent-filter>
     </activity>
     <activity
-      android:name=".activity.detail.DetailActivity"
+      android:name="dev.grack.zmatchschedulefootbal.old.activity.detail.DetailActivity"
       android:label=""
       android:theme="@style/AppTheme.NoActionBar" />
     <activity
-      android:name=".activity.mainactivity.MainActivity"
+      android:name="dev.grack.zmatchschedulefootbal.old.activity.mainactivity.MainActivity"
       android:theme="@style/AppTheme.NoActionBar" />
     <activity
-      android:name=".activity.searchactivity.SearchActivity"
+      android:name="dev.grack.zmatchschedulefootbal.old.activity.searchactivity.SearchActivity"
       android:label="Search Matches"
       android:parentActivityName=".NavigationActivity"
       android:theme="@style/AppTheme.NoActionBar"
       tools:targetApi="jelly_bean" />
     <activity
-      android:name=".activity.searchteams.SearchTeamActivity"
+      android:name="dev.grack.zmatchschedulefootbal.old.activity.searchteams.SearchTeamActivity"
       android:label="Search Teams"
       android:parentActivityName=".NavigationActivity"
       android:theme="@style/AppTheme.NoActionBar"
       tools:targetApi="jelly_bean" />
     <activity
-      android:name=".activity.detailteam.DetailTeamActivity"
-      android:parentActivityName=".activity.searchteams.SearchTeamActivity"
+      android:name="dev.grack.zmatchschedulefootbal.old.activity.detailteam.DetailTeamActivity"
+      android:parentActivityName="dev.grack.zmatchschedulefootbal.old.activity.searchteams.SearchTeamActivity"
       android:theme="@style/AppTheme.NoActionBar"
       tools:targetApi="jelly_bean" />
     <activity
-      android:name=".activity.player.PlayerActivity"
+      android:name="dev.grack.zmatchschedulefootbal.old.activity.player.PlayerActivity"
       android:theme="@style/AppTheme.NoActionBar" />
     <activity
-      android:name=".activity.playerdetail.PlayerDetailActivity"
+      android:name="dev.grack.zmatchschedulefootbal.old.activity.playerdetail.PlayerDetailActivity"
       android:label="@string/title_activity_player_detail"
       android:theme="@style/AppTheme.NoActionBar" />
     <activity
-      android:name=".activity.league.LeagueActivity"
+      android:name="dev.grack.zmatchschedulefootbal.old.activity.league.LeagueActivity"
       android:theme="@style/AppTheme.NoActionBar" />
   </application>
 

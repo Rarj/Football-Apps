@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.player.PlayerActivity">
+    tools:context="dev.grack.zmatchschedulefootbal.old.activity.player.PlayerActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_player"

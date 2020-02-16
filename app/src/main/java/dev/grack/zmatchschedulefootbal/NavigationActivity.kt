@@ -8,9 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
-import dev.grack.zmatchschedulefootbal.activity.league.LeagueActivity
-import dev.grack.zmatchschedulefootbal.activity.searchactivity.SearchActivity
-import dev.grack.zmatchschedulefootbal.activity.searchteams.SearchTeamActivity
+import dev.grack.zmatchschedulefootbal.old.activity.league.LeagueActivity
+import dev.grack.zmatchschedulefootbal.old.activity.searchactivity.SearchActivity
+import dev.grack.zmatchschedulefootbal.old.activity.searchteams.SearchTeamActivity
 import dev.grack.zmatchschedulefootbal.adapter.TabPageAdapter
 import kotlinx.android.synthetic.main.activity_navigation.*
 import kotlinx.android.synthetic.main.app_bar_navigation.*

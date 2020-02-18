@@ -28,6 +28,7 @@ buildscript {
         testRulesVersion = '1.2.0'
         espressoCoreVersion = '3.2.0'
         coreTestingVersion = '2.1.0'
+        mockitoAndroidVersion = '2.24.5'
     }
 
     repositories {

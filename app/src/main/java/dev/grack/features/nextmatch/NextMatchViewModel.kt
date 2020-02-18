@@ -50,7 +50,7 @@ class NextMatchViewModel @Inject constructor(service: ApiConfiguration) : BaseVi
           .subscribe({ nextMatchResponse ->
             matchModel.clear()
 
-            nextMatchResponse.events?.forEach { event ->
+            nextMatchResponse.events.forEach { event ->
               mappingTeam(event, nextMatchResponse)
             }
 

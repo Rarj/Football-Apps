@@ -10,7 +10,7 @@ object Utils {
       val pattern = SimpleDateFormat("yyyy-mm-dd", Locale.UK)
       val convertedDate = pattern.parse(date)
 
-      SimpleDateFormat("E, DD MMMM YYYY", Locale.UK).format(convertedDate!!)
+      SimpleDateFormat("E, dd MMMM yyyy", Locale.UK).format(convertedDate!!)
     } else {
       ""
     }

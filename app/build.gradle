@@ -84,10 +84,12 @@ dependencies {
     androidTestImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
     testImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
 
+    androidTestImplementation "org.mockito:mockito-android:$mockitoAndroidVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoCoreVersion"
+
     // FIXME : REMOVE THIS LIBRARY WHEN REFACTOR DONE
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$junitExtVersion"
-    testImplementation "org.mockito:mockito-core:$mockitoCoreVersion"
     testImplementation "org.mockito:mockito-inline:$mockitoCoreVersion"
     androidTestImplementation "androidx.test:rules:$testRulesVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"

@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 class NextMatchResponse(
       @SerializedName("events")
-      var events: List<Event>?
+      var events: ArrayList<Event>
 )
